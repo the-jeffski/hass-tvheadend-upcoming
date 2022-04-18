@@ -1,0 +1,9 @@
+{
+  "domain": "tvheadend_upcoming",
+  "name": "tvheadend upcoming sensor",
+  "documentation": "https://github.com/##",
+  "dependencies": [],
+  "codeowners": ["@kodi1 @the-jeffski"],
+  "requirements": [],
+  "version": "0.0.1"
+}

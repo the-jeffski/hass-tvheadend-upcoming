@@ -1,0 +1,5 @@
+{
+  "name": "TVHeadend Upcoming",
+  "domains": ["sensor"],
+  "render_readme": true
+}

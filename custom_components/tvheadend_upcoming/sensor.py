@@ -39,6 +39,7 @@ def fetch_data(a, url, recs):
                 'channelname': e.get('channelname'),
                 'disp_title': e.get('disp_title'),
                 'disp_subtitle': e.get('disp_subtitle'),
+                'disp_description': e.get('disp_description'),
                 'channel_icon': e.get('channel_icon'),
                 'start': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime(e.get('start'))),
                 'duration': e.get('duration'),
@@ -157,7 +158,7 @@ else:
                     card_item = {}
                     card_item['airdate'] = d['start']
                     card_item['title'] = d['disp_title']
-                    if match := re.search('Season (\d{1,3}(?!\d)|\d\d\d??)\/', d['episode_disp'], re.IGNORECASE):
+                    if match := re.search('Season (\d{1,3}(?!\d)|\d\d\d??)', d['episode_disp'], re.IGNORECASE):
                         season_num = "S" + (match.group(1).zfill(2))
                     else:
                         season_num = ''
@@ -167,6 +168,7 @@ else:
                         episode_num = ''    
                     card_item['number'] = season_num + episode_num
                     card_item['episode'] = d['disp_subtitle']
+                    card_item['description'] = d['disp_description']
                     card_item['runtime'] = d['duration'] // 60
                     card_item['studio'] = d['channelname']
                     card_item['poster'] = d['channel_icon']

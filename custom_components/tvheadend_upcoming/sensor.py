@@ -45,6 +45,7 @@ def fetch_data(a, url, recs):
                 'duration': e.get('duration'),
                 'episode_disp': e.get('episode_disp'),
                 'image': e.get('image'),
+                'status': e.get('sched_status')
             }
             s['data'].append(_s)
     else:
@@ -149,7 +150,8 @@ else:
                     'line1_default': '$episode',
                     'line2_default': '$studio',
                     'line3_default': '$runtime $date $time',
-                    'line4_default': '$number'
+                    'line4_default': '$number',
+                    'status': '$status'
                 }
             ]
 
@@ -172,7 +174,7 @@ else:
                     card_item['runtime'] = d['duration'] // 60
                     card_item['studio'] = d['channelname']
                     card_item['poster'] = d['channel_icon']
-
+                    card_item['status'] = d['status']
                     card_json.append(card_item)
 
             attributes.update(_data)
